@@ -18,7 +18,7 @@ def create_commendation(name, subject_title):
     except Subject.DoesNotExist:
         return 'Нет такого предмета!'
 
-    text_commendation=[
+    text_commendation = [
         'Молодец!',
         'Отлично!',
         'Хорошо!',
