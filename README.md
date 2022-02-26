@@ -26,7 +26,7 @@ python manage.py shell
 ```
 Пример запущенной Django shell:
 
-```
+```bash
 (ed) @Python:~/e-diary$ python manage.py shell
 Python 3.8.10 (default, Nov 26 2021, 20:14:08) 
 [GCC 9.3.0] on linux
@@ -45,13 +45,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Копируем в папку datacenter, в Django shell импортируем скрипт:
 
-```
+```Python
 >>> from datacenter.fix_marks import fix_marks
 
 ```
 Затем запускаем, принимает на вход Фамилию и Имя ученика:
 
-```
+```Python
 >>> fix_marks('Иванов Иван')
 ```
 если такого ученика нет в базе оповестит об этом.
@@ -64,13 +64,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Копируем в папку datacenter, в Django shell импортируем скрипт:
 
-```
+```Python
 >>> from datacenter.remove_chastisements import remove_chastisements
 
 ```
 Затем запускаем, принимает на вход Фамилию и Имя ученика:
 
-```
+```Python
 >>> remove_chastisements('Иванов Иван')
 ```
 если такого ученика нет в базе оповестит об этом.
@@ -83,13 +83,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 Копируем в папку datacenter, в Django shell импортируем скрипт:
 
-```
+```Python
 >>> from datacenter.create_commendation import create_commendation
 
 ```
 Затем запускаем, принимает на вход Фамилию и Имя ученика и предмет для которого будет добавлена похвала:
 
-```
+```Python
 >>> create_commendation('Иванов Иван', 'Математика')
 ```
 если такого ученика или предмета нет в базе оповестит об этом.
