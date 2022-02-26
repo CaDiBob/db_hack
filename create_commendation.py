@@ -1,19 +1,16 @@
 import random
 
-from datacenter.models import Schoolkid, Lesson, Subject, Commendation
+from datacenter.get_schoolkid import get_schoolkid
+from datacenter.models import Schoolkid, Lesson, Commendation, Subject
 
 
 def create_commendation(name, subject_title):
-    try:
-        schoolkid = Schoolkid.objects.get(full_name__contains=name)
-    except Schoolkid.DoesNotExist:
-        return 'Нет такого ученика!'
-    except Schoolkid.MultipleObjectsReturned:
-        return 'Нужно ввести Фамилию и Имя'
+    schoolkid = get_schoolkid(name)
+
     try:
         lesson_title = Subject.objects.filter(
             title=subject_title,
-            year_of_study=6
+            year_of_study=schoolkid.year_of_study
             ).get()
     except Subject.DoesNotExist:
         return 'Нет такого предмета!'
@@ -49,14 +46,12 @@ def create_commendation(name, subject_title):
         'Ты растешь над собой!',
         'Ты многое сделал, я это вижу!',
         'Теперь у тебя точно все получится!',
-    ]
-
+    ]    
     lesson = Lesson.objects.filter(
         subject=lesson_title,
         year_of_study=schoolkid.year_of_study,
         group_letter=schoolkid.group_letter,
-        ).order_by('?').first()
-
+        ).order_by('?').first()    
     commendation = Commendation.objects.create(
         text=random.choice(text_commendation),
         created=lesson.date,
