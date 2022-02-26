@@ -12,14 +12,6 @@ pip install -r requirements.txt
 Все операции проводить в Django shell
 
 ### Запуск:
-Сначала запускать локальный сервер:
-
-```bash
-python manage.py runserver
-```
-cайт дневника станет доступен по адресу [127.0.0.1:8000](http://127.0.0.1:8000)
-
-затем:
 
 ```bash
 python manage.py shell
